@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="upload-page">
+
+    <h1>Upload Candidate Resumes</h1>
+
+    <form
+        action="/upload-resume"
+        method="POST"
+        enctype="multipart/form-data"
+    >
+
+        <div id="dropzone" class="dropzone">
+
+            Drag & Drop Resumes Here
+            <br>
+            PDF or DOCX
+
+            <input
+                type="file"
+                id="fileInput"
+                name="resumes"
+                multiple
+                hidden
+            >
+
+        </div>
+
+        <div id="file-list"></div>
+
+        <button
+    type="submit"
+    class="gradient-btn"
+>
+    Process Resumes
+</button>
+
+    </form>
+
+</div>
+
+{% endblock %}

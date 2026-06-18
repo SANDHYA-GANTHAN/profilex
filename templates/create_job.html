@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="job-container">
+
+<div class="job-left">
+
+<h1>Job opportunities</h1>
+
+<p>
+Define hiring requirements and let AI
+screen candidates automatically.
+</p>
+
+</div>
+
+<div class="job-right">
+
+<form
+    action="/save-job"
+    method="POST"
+    enctype="multipart/form-data">
+<label>Job Title</label>
+
+<input
+type="text"
+name="job_title"
+placeholder="Job Title">
+
+<label>Company Name</label>
+
+<input
+type="text"
+name="company_name"
+placeholder="Company Name">
+
+<label>Required Skills</label>
+
+<div class="skill-wrapper">
+    <input
+type="text"
+name="required_skills"
+placeholder="Python, Flask, SQL">
+
+<div id="skills-container"></div>
+
+<input
+id="skill-input"
+placeholder="Type skill and press Enter">
+
+</div>
+
+<label>Experience</label>
+
+<<input
+type="text"
+name="required_experience"
+placeholder="3 Years">
+
+<label>Description</label>
+
+<textarea
+    rows="4"
+    name="description"
+    placeholder="Enter Job Description">
+</textarea>
+
+<div class="separator">
+    OR
+</div>
+
+<label>Upload Job Description</label>
+
+<input
+    type="file"
+    name="jd_file"
+    accept=".pdf,.docx">
+
+<button class="gradient-btn">
+    Upload Resumes
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+{% endblock %}

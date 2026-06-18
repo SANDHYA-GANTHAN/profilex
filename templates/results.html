@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="upload-page">
+
+    <h1>Candidate Rankings</h1>
+       <table class="results-table">
+
+        <thead>
+
+            <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Score</th>
+                <th>Classification</th>
+                <th>Skills</th>
+                <th>Matched Skills</th>
+                <th>Missing Skills</th>
+                <th>Additional Skills</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+    {% for candidate in candidates %}
+
+    <tr>
+
+        <td>{{ loop.index }}</td>
+
+        <td>
+            <a href="/candidate/{{ candidate.id }}">
+                {{ candidate.name }}
+            </a>
+        </td>
+
+        <td>{{ candidate.match_score }}%</td>
+
+        <td>
+
+            {% if candidate.classification == "Excellent Fit" %}
+                <span class="badge excellent">
+                    Excellent Fit
+                </span>
+
+            {% elif candidate.classification == "Good Fit" %}
+                <span class="badge good">
+                    Good Fit
+                </span>
+
+            {% elif candidate.classification == "Average Fit" %}
+                <span class="badge average">
+                    Average Fit
+                </span>
+
+            {% else %}
+                <span class="badge poor">
+                    Poor Fit
+                </span>
+
+            {% endif %}
+
+        </td>
+
+        <td>{{ candidate.skills }}</td>
+
+        <td>{{ candidate.matched_skills }}</td>
+
+        <td>{{ candidate.missing_skills }}</td>
+
+        <td>{{ candidate.additional_skills }}</td>
+
+    </tr>
+
+    {% endfor %}
+
+</tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

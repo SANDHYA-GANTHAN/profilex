@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="dashboard-page">
+
+    <h1>Dashboard</h1>
+
+    <div class="dashboard-grid">
+
+        <div class="card">
+            <h3>Total Candidates</h3>
+            <h2>{{ stats.total }}</h2>
+        </div>
+
+        <div class="card">
+            <h3>Excellent Fits</h3>
+            <h2>{{ stats.excellent }}</h2>
+        </div>
+
+        <div class="card">
+            <h3>Good Fits</h3>
+            <h2>{{ stats.good }}</h2>
+        </div>
+
+        <div class="card">
+            <h3>Average Fits</h3>
+            <h2>{{ stats.average }}</h2>
+        </div>
+
+        <div class="card">
+            <h3>Poor Fits</h3>
+            <h2>{{ stats.poor }}</h2>
+        </div>
+
+        <div class="card">
+            <h3>Top Score</h3>
+            <h2>{{ stats.top_score }}%</h2>
+        </div>
+
+    </div>
+
+</div>
+
+
+</table>
+
+{% endblock %}

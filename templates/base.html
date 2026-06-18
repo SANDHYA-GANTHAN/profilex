@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ProfileX</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+ProfileX<span>.</span>
+</div>
+
+<ul class="nav-links">
+
+<li>
+<a href="/">Home</a>
+</li>
+
+<li>
+<a href="/create-job">Job opportunities</a>
+</li>
+
+<li>
+<a href="/upload">Upload</a>
+</li>
+
+<li>
+<a href="/dashboard">Dashboard</a>
+</li>
+
+</ul>
+
+<a href="/create-job" class="btn-new-job">
+NEW JOB
+</a>
+
+</nav>
+
+{% block content %}
+{% endblock %}
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+</html>

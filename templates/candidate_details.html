@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="upload-page">
+
+    <h1>Candidate Details</h1>
+
+    <div class="candidate-card">
+
+        <h2>{{ candidate.name }}</h2>
+
+        <p>
+            <strong>Email:</strong>
+            {{ candidate.email }}
+        </p>
+
+        <p>
+            <strong>Phone:</strong>
+            {{ candidate.phone }}
+        </p>
+
+        <p>
+            <strong>Score:</strong>
+            {{ candidate.match_score }}%
+        </p>
+
+        <p>
+<strong>Classification:</strong>
+
+{% if candidate.classification == "Excellent Fit" %}
+<span class="badge excellent">
+Excellent Fit
+</span>
+
+{% elif candidate.classification == "Good Fit" %}
+<span class="badge good">
+Good Fit
+</span>
+
+{% elif candidate.classification == "Average Fit" %}
+<span class="badge average">
+Average Fit
+</span>
+
+{% else %}
+<span class="badge poor">
+Poor Fit
+</span>
+
+{% endif %}
+
+</p>
+
+        <p>
+            <strong>Skills:</strong>
+            {{ candidate.skills }}
+        </p>
+
+        <p>
+            <strong>Matched Skills:</strong>
+            {{ candidate.matched_skills }}
+        </p>
+
+        <p>
+            <strong>Missing Skills:</strong>
+
+            {% if candidate.missing_skills %}
+                {{ candidate.missing_skills }}
+            {% else %}
+                None
+            {% endif %}
+</p>
+
+        <p>
+            <strong>Additional Skills:</strong>
+            {{ candidate.additional_skills }}
+        </p>
+
+        <p>
+    <strong>Resume File:</strong>
+    {{ candidate.resume_file }}
+</p>
+
+<div style="margin-top:20px;">
+
+    <a href="/download-report/{{ candidate.id }}"
+   class="gradient-btn action-btn">
+   Download Report
+</a>
+
+<a href="/resume/{{ candidate.id }}"
+   class="gradient-btn action-btn">
+   View Resume
+</a>
+
+</div>
+
+</div>
+
+    </div>
+
+</div>
+
+{% endblock %}
