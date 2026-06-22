@@ -7,11 +7,9 @@ import pdfplumber
 
 from docx import Document
 
-import spacy
 import os
 
 
-nlp = spacy.load("en_core_web_sm")
 
 
 def extract_text_pdf(path):
@@ -134,70 +132,6 @@ def get_name_from_top_lines(text):
             return line.title()
 
     return None
-def get_name_spacy(text):
-
-    INVALID_WORDS = {
-        "java",
-        "automation",
-        "testing",
-        "selenium",
-        "engineer",
-        "developer",
-        "skills",
-        "summary",
-        "experience",
-        "About me",
-        "core",
-        "selenium",
-        "automation",
-        "automated",
-        "testing",
-        "engineer",
-        "developer",
-        "architect",
-        "consultant",
-        "analyst",
-        "crm",
-        "siebel",
-        "aws",
-        "python",
-        "spark",
-        "airflow",
-        "etl",
-        "sql",
-        "summary",
-        "skills",
-        "emr",
-        "data engineer",
-        "experience",
-        "project",
-        "projects",
-        "assurance process"
-    }
-
-    doc = nlp(text[:3000])
-
-    for ent in doc.ents:
-
-        if ent.label_ == "PERSON":
-
-            name = ent.text.strip()
-
-            words = name.split()
-
-            if not (1 <= len(words) <= 4):
-                continue
-
-            if any(word.lower() in INVALID_WORDS for word in words):
-                continue
-
-            if any(char.isdigit() for char in name):
-                continue
-
-            return name.title()
-
-    return None
-
 
 def get_name(text):
 
