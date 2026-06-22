@@ -8,6 +8,7 @@ import pdfplumber
 from docx import Document
 
 import os
+import fitz
 
 
 
